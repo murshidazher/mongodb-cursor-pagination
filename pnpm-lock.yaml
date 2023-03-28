@@ -49,8 +49,8 @@ devDependencies:
     specifier: 13.1.0
     version: 13.1.0
   mongodb:
-    specifier: 4.13.0
-    version: 4.13.0
+    specifier: 4.14.0
+    version: 4.14.0
   mongodb-memory-server:
     specifier: 8.12.1
     version: 8.12.1
@@ -680,7 +680,6 @@ packages:
 
   /@aws-sdk/util-base64-browser@3.188.0:
     resolution: {integrity: sha512-qlH+5NZBLiyKziL335BEPedYxX6j+p7KFRWXvDQox9S+s+gLCayednpK+fteOhBenCcR9fUZOVuAPScy1I8qCg==}
-    deprecated: The package @aws-sdk/util-base64-browser has been renamed to @aws-sdk/util-base64. Please install the renamed package.
     dependencies:
       tslib: 2.5.0
     dev: true
@@ -689,7 +688,6 @@ packages:
   /@aws-sdk/util-base64-node@3.188.0:
     resolution: {integrity: sha512-r1dccRsRjKq+OhVRUfqFiW3sGgZBjHbMeHLbrAs9jrOjU2PTQ8PSzAXLvX/9lmp7YjmX17Qvlsg0NCr1tbB9OA==}
     engines: {node: '>= 12.0.0'}
-    deprecated: The package @aws-sdk/util-base64-node has been renamed to @aws-sdk/util-base64. Please install the renamed package.
     dependencies:
       '@aws-sdk/util-buffer-from': 3.188.0
       tslib: 2.5.0
@@ -7293,7 +7291,7 @@ packages:
       get-port: 5.1.1
       https-proxy-agent: 5.0.1
       md5-file: 5.0.0
-      mongodb: 4.13.0
+      mongodb: 4.14.0
       new-find-package-json: 2.0.0
       semver: 7.3.8
       tar-stream: 2.2.0
@@ -7317,8 +7315,8 @@ packages:
       - supports-color
     dev: true
 
-  /mongodb@4.13.0:
-    resolution: {integrity: sha512-+taZ/bV8d1pYuHL4U+gSwkhmDrwkWbH1l4aah4YpmpscMwgFBkufIKxgP/G7m87/NUuQzc2Z75ZTI7ZOyqZLbw==}
+  /mongodb@4.14.0:
+    resolution: {integrity: sha512-coGKkWXIBczZPr284tYKFLg+KbGPPLlSbdgfKAb6QqCFt5bo5VFZ50O3FFzsw4rnkqjwT6D8Qcoo9nshYKM7Mg==}
     engines: {node: '>=12.9.0'}
     dependencies:
       bson: 4.7.2
