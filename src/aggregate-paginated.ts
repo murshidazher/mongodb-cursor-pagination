@@ -52,13 +52,13 @@ export const aggregatePaginated = async <TDocument extends BaseDocument>(
     },
   )
 
-  const documents = (await collection.aggregate([
-    ...pipeline,
-    { $count: 'countDocs' },
-  ])) as unknown as { countDocs: number }
-
-  const allDocuments = (await collection
-    .aggregate([
+  const [count, allDocuments] = await Promise.all([
+    collection.countDocuments({
+      filters: {
+        ...pipeline,
+      },
+    }),
+    collection.aggregate<TDocument>([
       ...pipeline,
       // When we receive a cursor, we must make sure only results after
       // (or before) the given cursor are returned, so we need to add an
@@ -68,8 +68,8 @@ export const aggregatePaginated = async <TDocument extends BaseDocument>(
       { $sort: sort },
       // Get 1 extra document to know if there's more after what was requested
       { $limit: limit + 1 },
-    ])
-    .toArray()) as TDocument[]
+    ]).toArray()
+  ])
 
   // Check whether the extra document mentioned above exists
   const extraDocument = allDocuments[limit]
@@ -90,7 +90,7 @@ export const aggregatePaginated = async <TDocument extends BaseDocument>(
     edges,
     pageInfo: {
       count: desiredDocuments.length,
-      totalCount: documents.countDocs || 0,
+      totalCount: count || 0,
       startCursor: edges[0]?.cursor ?? null,
       endCursor: edges[edges.length - 1]?.cursor ?? null,
       hasPreviousPage: paginatingBackwards ? hasMore : Boolean(after),
