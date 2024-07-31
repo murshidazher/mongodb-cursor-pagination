@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "base64-url": "2.3.3",
-    "bson": "6.7.0",
+    "bson": "6.8.0",
     "lodash.get": "4.4.2",
     "lodash.mapvalues": "4.6.0"
   },
